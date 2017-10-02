@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('../lib/font-awesome-4.7.0/css/font-awesome.min.css');
+body {
+    padding-top: 20px;
+    padding-bottom: 100px;
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    min-height: 100%;
+  }
+
+.container {
+  position: relative;
+}
+
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+  
+footer.footer {
+  padding: 15px 15px 15px 30px;
+  margin: 20px 0;
+  border: 1px solid #e5e5e5;
+  bottom: 0;
+  width: 100%;
+  background-image: linear-gradient(to bottom, #f7f7f7 0%,#eee 100%);
+  border-radius: 3px;
+}
+
+footer.footer p {
+  margin: 0;
+}
+  
+  /* Main marketing message and sign up button */
+  .jumbotron {
+    text-align: center;
+    background-color: transparent;
+  }
+  .jumbotron .btn {
+    padding: 14px 24px;
+    font-size: 21px;
+  }
+  
+  .navbar {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7),to(#eee));
+    background-image: -webkit-linear-gradient(top, #f7f7f7 0%,#eee 100%);
+    background-image: -o-linear-gradient(top, #f7f7f7 0%,#eee 100%);
+    background-image: linear-gradient(to bottom, #f7f7f7 0%,#eee 100%);
+    border: 1px solid #e5e5e5;
+  }
+  
+  @media (min-width: 768px) {
+    .navbar-nav {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+    }
+  
+    .navbar-nav .nav-item {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1 0 auto;
+          -ms-flex: 1 0 auto;
+              flex: 1 0 auto;
+    }
+  }
+  
+  /* Responsive: Portrait tablets and up */
+  @media screen and (min-width: 768px) {
+    /* Remove the padding we set earlier */
+    .masthead,
+    .marketing,
+    .footer {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .lead {
+    font-weight: 100;
+  }
+
+  /* Home page elements. */
+  .home-media-icon {
+    font-size: 48px;
+    color: #6B6B6B;
+  }
+
+  /* Login page. */
+  .row-login-form {
+    margin-top: 50px;
+  }
+
+  .cherry-custom-file {
+    height: 32px;
+    background-color: #007bff;
+    width: 75%;
+    border-radius: 3px;
+    box-shadow: 0 0 3px;
+  }
+  .cherry-custom-file input {
+    height: 0;
+    visibility: hidden;
+  }
+
+  .cherry-custom-file .file-name {
+    position: relative;
+    top: -22px;
+    left: 10px;
+    color: aliceblue;
+  }
+
+  /* Events page. */
+  .events-card-deck .card {
+    box-shadow: 0 0 2px;
+    color: black;
+    position: relative;
+  }
+  .events-card-deck .card:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 6px;
+    text-decoration: none;
+  }
+  .events-card-deck .card .btn-link:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .events-card-deck .card .btn-link {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+  }
+
+
+  .events-search-row {
+    margin-bottom: 15px;
+  }
+  .events-search-row button i {
+    transform: scale(-1, 1);
+  }

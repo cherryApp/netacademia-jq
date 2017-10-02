@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>JegyBazár | Bejelentkezés</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="masthead">
+        <h3 class="text-muted">JegyBazár</h3>
+
+        <nav class="navbar navbar-expand-md navbar-light bg-light rounded mb-3">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav text-md-center nav-justified w-100">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="events.html">Események</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tickets.html">Jegyek</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">Rólunk</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="login.html">Belépés</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Login form. -->
+      <div class="row justify-content-center row-login-form">
+        <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+          <!-- Alert message. -->
+          <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            Hello, itt tudsz belépni.
+          </div>
+
+          <div class="card border-secondary">
+            <div class="card-header">Bejelentkezés</div>
+            <div class="card-body">
+              <form id="loginForm" novalidate>
+                <div class="form-group">
+                  <label for="loginEmail">Email</label>
+                  <input title="hibás email cím" name="loginEmail" type="email" class="form-control" id="loginEmail" placeholder="email">
+                  <small id="emailHelp" class="form-text text-muted">a címed nálunk biztonságban lesz</small>
+                </div>
+                <div class="form-group">
+                  <label for="loginPassword">Jelszó</label>
+                  <input name="loginPassword" type="password" class="form-control" id="loginPassword" placeholder="jelszó">
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input name="rememberMe" type="checkbox" class="form-check-input">
+                    emlékezz rám
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary">belépés</button>
+              </form>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <!-- /Login form. -->
+
+    </div> <!-- /container -->
+
+    <div class="container footer-container">
+      <!-- Site footer -->
+      <footer class="footer">
+        <p>&copy; Company 2017</p>
+      </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="lib/jquery-3.2.1.slim.min.js"></script>
+    <script src="lib/popper.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
