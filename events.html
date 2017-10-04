@@ -124,7 +124,7 @@
       -->
 
     <div class="card-deck events-card-deck">
-      <a href="tickets.html?event=1" class="card">
+      <a href="tickets.html?event=1" class="card col-12 col-sm-6 col-md-4">
           <img class="card-img-top" src="img/sziget.png" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">Sziget Fesztivál</h4>
@@ -133,7 +133,7 @@
             <button class="btn btn-link float-right">tovább</button>
           </div>
         </a>
-        <a href="tickets.html?event=2" class="card">
+        <a href="tickets.html?event=2" class="card col-12 col-sm-6 col-md-4">
           <img class="card-img-top" src="img/diotoro.jpg" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">Diótörő Balett</h4>
@@ -142,7 +142,7 @@
             <p><button class="btn btn-link float-right">tovább</button></p>
           </div>
         </a>
-        <a href="tickets.html?event=3" class="card">
+        <a href="tickets.html?event=3" class="card col-12 col-sm-6 col-md-4">
           <img class="card-img-top" src="img/macskak.jpg" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">Macskák Musical</h4>
@@ -151,6 +151,38 @@
             <p><button class="btn btn-link float-right">tovább</button></p>
           </div>
         </a>
+
+      </div>
+      <div class="card-deck events-card-deck">
+
+        <a href="tickets.html?event=3" class="card col-12 col-sm-6 col-md-4">
+            <img class="card-img-top" src="img/macskak.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Macskák Musical</h4>
+              <p class="card-text">Amerika házhoz jön, ebben a nagyszerű és izgalmas musicalban</p>
+              <p class="card-text"><small class="text-muted">2018-02-11</small></p>
+              <p><button class="btn btn-link float-right">tovább</button></p>
+            </div>
+          </a>
+        <a href="tickets.html?event=3" class="card col-12 col-sm-6 col-md-4">
+            <img class="card-img-top" src="img/macskak.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Macskák Musical</h4>
+              <p class="card-text">Amerika házhoz jön, ebben a nagyszerű és izgalmas musicalban</p>
+              <p class="card-text"><small class="text-muted">2018-02-11</small></p>
+              <p><button class="btn btn-link float-right">tovább</button></p>
+            </div>
+          </a>
+          <a href="tickets.html?event=2" class="card col-12 col-sm-6 col-md-4">
+              <img class="card-img-top" src="img/diotoro.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Diótörő Balett</h4>
+                <p class="card-text">Nézd meg a grandiőzus balett előadást most elővételben</p>
+                <p class="card-text"><small class="text-muted">2017-11-23</small></p>
+                <p><button class="btn btn-link float-right">tovább</button></p>
+              </div>
+            </a>
+        
     </div>
 
     </div> <!-- /container -->
@@ -166,23 +198,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="lib/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="lib/popper.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-
-    <script>
-      $(".events-search-row input").on("keyup", function(ev) {
-      $.each( $(".events-card-deck .card .card-title"), function(i, e)   {
-          var elem = $(e);
-          var search = ev.target.value.toLowerCase();
-          var content = elem.html().toLowerCase();
-          if ( content.indexOf(search) == -1 ) {
-            elem.parents(".card").hide();
-          } else {
-            elem.parents(".card").show();
-          }
-        });
-      });
-    </script>
+    <script src="js/main.js"></script>
   </body>
 </html>
