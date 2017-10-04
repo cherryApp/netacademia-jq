@@ -17,9 +17,13 @@ $("p").click();
 $("nav a.nav-link").click( function(ev) {
     ev.preventDefault();
     var link = $(this);
-    $(document.body).animate({
-        opacity: '0'
-    }, 1000, function() {
+    var prop = link.data("prop") || "opacity";
+    var val = link.data("value") || "0";
+    var speed = link.data("speed") || 1000;
+    var settings = {};
+    settings[prop] = val;
+
+    $(document.body).animate(settings, speed, function() {
         document.location = link.attr("href");
     });
 });
