@@ -141,9 +141,22 @@ footer.footer p {
   }
 
 
-  .events-search-row {
+  .events-search-row, .tickets-search-row {
     margin-bottom: 15px;
   }
-  .events-search-row button i {
+  .events-search-row button i, .tickets-search-row button i {
     transform: scale(-1, 1);
   }
+  .ticket-table thead th[data-key] {
+    cursor: pointer;
+  }
+  .ticket-table thead th[data-key] i.fa-sort-amount-asc, 
+  .ticket-table thead th[data-key] i.fa-sort-amount-desc {
+    display: none;
+  }
+  .ticket-table thead th[data-key].asc i.fa-sort-amount-asc, 
+  .ticket-table thead th[data-key].desc i.fa-sort-amount-desc {
+    display: inline;
+  }
+
+  

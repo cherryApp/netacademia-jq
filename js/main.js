@@ -75,44 +75,44 @@ var tickets = [
     event: "Sziget Fesztivál",
     time: "2018-08-03 18:00:00",
     seller: "Kis Márton",
-    pcs: 5,
+    pcs: 9,
     link: "licit/1"
   },
   {
     event: "Diótörő Balett",
     time: "2018-08-03 18:00:00",
     seller: "Nagy Ádám",
-    pcs: 5,
+    pcs: 6,
     link: "licit/1"
   },
   {
     event: "MOMA Party",
     time: "2018-08-03 18:00:00",
     seller: "Brezeviczy Krisztián",
-    pcs: 5,
+    pcs: 1,
     link: "licit/1"
   },
   {
     event: "A Kékszakállú Herceg vára",
     time: "2018-08-03 18:00:00",
     seller: "Zwack Magdolna",
-    pcs: 5,
+    pcs: 15,
     link: "licit/1"
   },
   {
     event: "Balett mindenkinek",
     time: "2018-08-03 18:00:00",
     seller: "Schwarz Aurél",
-    pcs: 5,
+    pcs: 3,
     link: "licit/1"
   },
   {
     event: "Macskák Musical",
     time: "2018-08-03 18:00:00",
     seller: "Cserkó József",
-    pcs: 5,
+    pcs: 2,
     link: "licit/1"
-  },
+  }
 ];
 
 // Jegyek táblájának generálása.
@@ -154,4 +154,36 @@ function filterTickets() {
   }
 
   fillTicketsTable(filteredTickets);
+}
+
+// Jegyek táblázat rendezése.
+ticketTable.find("thead th[data-key]").on("click", orderTicketTable);
+function orderTicketTable() {
+  var th = $(this);
+  $.each(ticketTable.find('thead th[data-key]'), function(index, elem) {
+    var currentTh = $(elem);
+    if (th.data("key") != currentTh.data("key")) {
+      currentTh.removeClass("asc").removeClass("desc");
+    }
+  });
+  var key = th.data("key");
+  var sortedTickets = tickets.map( function(item) {
+    return item;
+  });
+
+  if (th.hasClass("asc")) {
+    th.removeClass("asc").addClass("desc");
+  } else {
+    th.removeClass("desc").addClass("asc");
+  }
+
+  sortedTickets.sort(function(a, b) {
+    if (th.hasClass("asc")) {
+      return a[key].toString().localeCompare(b[key].toString());
+    } else {
+      return b[key].toString().localeCompare(a[key].toString());
+    }
+    
+  });
+  fillTicketsTable(sortedTickets);
 }
