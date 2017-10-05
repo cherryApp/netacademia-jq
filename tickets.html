@@ -51,9 +51,22 @@
     </div>
 
     <h1>Licitálható jegyek listája</h1>
+    <div class="row tickets-search-row">
+      <div class="col-12">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="keresés..." aria-label="keresés">
+          <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
     <table class="table table-striped">
       <thead class="thead-inverse">
         <tr>
+          <th>#</th>
           <th style="min-width:30%">Esemény neve</th>
           <th>Időpont</th>
           <th class="d-none d-md-table-cell">Eladó neve</th>
@@ -61,58 +74,7 @@
           <th style="width:18%">Licitek megtekintése</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="<strong>Még 3 napig lehet licitálni</strong><br/>az esemény megtekintéséhez kattints ide">
-            <a href="event.html?id=1">Sziget fesztivál</a></td>
-          <td>2018.08.03. 13:00</td>
-          <td class="d-none d-md-table-cell">Példa Jóska</td>
-          <td class="text-right d-none d-md-table-cell">3 db.</td>
-          <td>
-            <a href="bid.html?id=1">tovább a licithez</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="<strong>Még 3 napig lehet licitálni</strong><br/>az esemény megtekintéséhez kattints ide">
-            <a href="event.html?id=1">Sziget fesztivál</a></td>
-          <td>2018.08.03. 13:00</td>
-          <td class="d-none d-md-table-cell">Példa Jóska</td>
-          <td class="text-right d-none d-md-table-cell">3 db.</td>
-          <td>
-            <a href="bid.html?id=1">tovább a licithez</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="<strong>Még 3 napig lehet licitálni</strong><br/>az esemény megtekintéséhez kattints ide">
-            <a href="event.html?id=1">Sziget fesztivál</a></td>
-          <td>2018.08.03. 13:00</td>
-          <td class="d-none d-md-table-cell">Példa Jóska</td>
-          <td class="text-right d-none d-md-table-cell">3 db.</td>
-          <td>
-            <a href="bid.html?id=1">tovább a licithez</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="<strong>Még 3 napig lehet licitálni</strong><br/>az esemény megtekintéséhez kattints ide">
-            <a href="event.html?id=1">Sziget fesztivál</a></td>
-          <td>2018.08.03. 13:00</td>
-          <td class="d-none d-md-table-cell">Példa Jóska</td>
-          <td class="text-right d-none d-md-table-cell">3 db.</td>
-          <td>
-            <a href="bid.html?id=1">tovább a licithez</a>
-          </td>
-        </tr>
-        <tr>
-          <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="<strong>Még 3 napig lehet licitálni</strong><br/>az esemény megtekintéséhez kattints ide">
-            <a href="event.html?id=1">Sziget fesztivál</a></td>
-          <td>2018.08.03. 13:00</td>
-          <td class="d-none d-md-table-cell">Példa Jóska</td>
-          <td class="text-right d-none d-md-table-cell">3 db.</td>
-          <td>
-            <a href="bid.html?id=1">tovább a licithez</a>
-          </td>
-        </tr>
-      </tbody>
+      <tbody></tbody>
     </table>
 
   </div>
@@ -123,6 +85,22 @@
     <footer class="footer">
       <p>&copy; Company 2017</p>
     </footer>
+  </div>
+
+  <div class="templates" style="display: none;">
+    <table>
+      <tr class="ticket-row">
+        <td></td>
+        <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="<strong>Még 3 napig lehet licitálni</strong><br/>az esemény megtekintéséhez kattints ide">
+          <a href="event.html?id=1">Sziget fesztivál</a></td>
+        <td>2018.08.03. 13:00</td>
+        <td class="d-none d-md-table-cell">Példa Jóska</td>
+        <td class="text-right d-none d-md-table-cell">3 db.</td>
+        <td>
+          <a href="bid.html?id=1">tovább a licithez</a>
+        </td>
+      </tr>
+    </table>
   </div>
 
 
