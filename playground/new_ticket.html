@@ -42,6 +42,10 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
+        <div id="ticket-list">
+            <pre></pre>
+        </div>
     </div>
     <!-- /container -->
 
@@ -103,7 +107,17 @@
             }, 3000);
         }
 
+        function refreshTicketList() {
+            $.getJSON(RESTURL + "/tickets?_sort=id&_order=desc").done(
+                function (ticketList) {
+                    $('#ticket-list > pre')[0].innerText = JSON.stringify(ticketList, null, 2);
+                }
+            );
+        }
+
         $(document).ready(function () {
+            refreshTicketList();
+
             $("#new-ticket-form").submit(
                 function (event) {
                     // bongeszo beepitett submit esemeny megallitasa
@@ -140,6 +154,7 @@
                             enableInputs(inputs);
 
                             showAlert(newTicketFormElem, 'success', 'Sikeres mentés');
+                            refreshTicketList();
                         }).fail(function () {
                             alert("Hiba a server elérésénél");
 
