@@ -23,7 +23,25 @@
         <div class="masthead">
             <h3 class="text-muted">JegyBazár</h3>
         </div>
-
+        <form>
+            <div class="form-group">
+                <label for="event-name">Az esemény megnevezése</label>
+                <input type="text" class="form-control" id="event-name" placeholder="Az esemény megnevezése">
+            </div>
+            <div class="form-group">
+                <label for="seller-name">Eladó neve</label>
+                <input type="text" class="form-control" id="seller-name" placeholder="Eladó neve">
+            </div>
+            <div class="form-group">
+                <label for="time">Időpont</label>
+                <input type="datetime-local" class="form-control" id="time" placeholder="Időpont">
+            </div>
+            <div class="form-group">
+                <label for="pcs">Jegyek száma</label>
+                <input type="number" class="form-control" id="pcs" placeholder="Jegyek száma">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
     <!-- /container -->
 
