@@ -80,6 +80,29 @@
         // tavoli server url
         var RESTURL = "http://localhost:3000";
 
+        function disableInputs(inputs) {
+            inputs.prop('disabled', true);
+        }
+
+        function enableInputs(inputs) {
+            inputs.prop('disabled', false);
+        }
+
+        function showAlert(beforeElem, type, text) {
+            var formAlertId = 'form-alert';
+
+            $("#" + formAlertId).remove();
+
+            $('<div class="alert alert-' + type + '" id="' + formAlertId + '" role="alert">' + text + '</div>')
+                .insertBefore(beforeElem).fadeIn();
+
+            setTimeout(function () {
+                $("#" + formAlertId).fadeOut(function () {
+                    $(this).remove();
+                });
+            }, 3000);
+        }
+
         $(document).ready(function () {
             $("#new-ticket-form").submit(
                 function (event) {
@@ -101,11 +124,27 @@
                                 data[elem['name']] = elem['value'];
                             }
                         );
+
+                        var inputs = $('input', newTicketFormElem);
+                        disableInputs(inputs);
+
                         $.ajax({
                             type: "POST",
                             url: RESTURL + "/tickets",
                             "data": data,
                             dataType: 'json'
+                        }).done(function (returnData) {
+                            console.log("returnData => ", returnData);
+                            newTicketFormElem.removeClass('was-validated');
+                            newTicketFormNativeElem.reset();
+                            enableInputs(inputs);
+
+                            showAlert(newTicketFormElem, 'success', 'Sikeres mentés');
+                        }).fail(function () {
+                            alert("Hiba a server elérésénél");
+
+                            enableInputs(inputs);
+                            showAlert(newTicketFormElem, 'warning', 'Hiba a serveren');
                         });
                     }
 
