@@ -1,0 +1,52 @@
+{
+  "tickets": [
+    {
+      "id":0,
+      "event": "Sziget Fesztivál",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Kis Márton",
+      "pcs": 9,
+      "link": "licit/1"
+    },
+    {
+      "id":1,
+      "event": "Diótörő Balett",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Nagy Ádám",
+      "pcs": 6,
+      "link": "licit/1"
+    },
+    {
+      "id":2,
+      "event": "MOMA Party",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Brezeviczy Krisztián",
+      "pcs": 1,
+      "link": "licit/1"
+    },
+    {
+      "id":3,
+      "event": "A Kékszakállú Herceg vára",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Zwack Magdolna",
+      "pcs": 15,
+      "link": "licit/1"
+    },
+    {
+      "id":4,
+      "event": "Balett mindenkinek",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Schwarz Aurél",
+      "pcs": 3,
+      "link": "licit/1"
+    },
+    {
+      "id":5,
+      "event": "Macskák Musical",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Cserkó József",
+      "pcs": 2,
+      "link": "licit/1"
+    }
+  ]
+}

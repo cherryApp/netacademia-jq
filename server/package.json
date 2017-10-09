@@ -1,0 +1,15 @@
+{
+  "name": "netacademia-jquery-ajax",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "json-server": "^0.12.0"
+  },
+  "scripts": {
+    "start": "node node_modules/json-server/bin/index.js db.json"
+  },
+  "author": "",
+  "license": "ISC"
+}
