@@ -67,36 +67,3 @@ function showInvalidMessage() {
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
-
-
-// Jegyek táblázat rendezése.
-ticketTable.find("thead th[data-key]").on("click", orderTicketTable);
-function orderTicketTable() {
-  var th = $(this);
-  $.each(ticketTable.find('thead th[data-key]'), function (index, elem) {
-    var currentTh = $(elem);
-    if (th.data("key") != currentTh.data("key")) {
-      currentTh.removeClass("asc").removeClass("desc");
-    }
-  });
-  var key = th.data("key");
-  var sortedTickets = tickets.map(function (item) {
-    return item;
-  });
-
-  if (th.hasClass("asc")) {
-    th.removeClass("asc").addClass("desc");
-  } else {
-    th.removeClass("desc").addClass("asc");
-  }
-
-  sortedTickets.sort(function (a, b) {
-    if (th.hasClass("asc")) {
-      return a[key].toString().localeCompare(b[key].toString());
-    } else {
-      return b[key].toString().localeCompare(a[key].toString());
-    }
-
-  });
-  fillTicketsTable(sortedTickets);
-}
