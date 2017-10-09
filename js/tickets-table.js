@@ -6,9 +6,9 @@ $(document).ready(function () {
     var ticketListTable = $("#ticket-list");
     // lapozas globalis valtozoi
     var pageLimit = 3; // hany egyed jelenjen meg egy lapon
-    var currentPage = 1;
-    var maxPage = 0;
-    var totalCount = 0;
+    var currentPage = 1; // jelenleg hol all a lapozo
+    var maxPage = 0; // hany oldalt tudunk megjeleniteni
+    var totalCount = 0; // osszes egyed szam amit a server tud szolgaltatni
 
     // tabla kitoltese javascript object-bol
     function fillTicketsTable(currentTickets) {
@@ -17,7 +17,7 @@ $(document).ready(function () {
 
         $.each(currentTickets, function (index, ticket) {
             var row = $(".templates .ticket-row").clone();
-            row.find("td").eq(0).html(index + 1);
+            row.find("td").eq(0).html(ticket.id);
             row.find("td").eq(1).html(ticket.event);
             row.find("td").eq(2).html(ticket.time);
             row.find("td").eq(3).html(ticket.seller);
@@ -32,6 +32,7 @@ $(document).ready(function () {
         var urlParams = [];
         var url = RESTURL + "/tickets";
 
+        // lapozo adatok kezelese
         urlParams.push('_limit=' + pageLimit);
         urlParams.push('_page=' + currentPage);
         // sima szoveges kereses lekezelese
@@ -53,16 +54,21 @@ $(document).ready(function () {
         $.getJSON(url).done(
             function (ticketList, textStatus, request) {
                 var oldMaxPage = maxPage;
+                // valasz fejlecbol kiolvassuk az osszes lehetseges talalat szamat
                 totalCount = request.getResponseHeader('X-Total-Count');
                 maxPage = totalCount / pageLimit;
+                // modulus (maradekos) osztas
                 if (maxPage % 1 !== 0) {
                     maxPage = parseInt(maxPage) + 1;
                 }
+                // ha valtozott az oldalak szama akkor ujra kirajzoljuk a lapozot
                 if (oldMaxPage != maxPage) {
                     renderTicketTabletPaginator();
                 }
 
+                // lapozo ertekeinek frissitese
                 refreshPaginate();
+                // tablazat kirajzolasa az uj adatokkal
                 fillTicketsTable(ticketList);
             }
         );
@@ -82,22 +88,30 @@ $(document).ready(function () {
 
             // ha tiltva van a jobb oldali nyilacska akkor levesszuk a tiltast
             lastElem.removeClass('disabled');
-            // ha tiltva van a jobb oldali utolso szam akkor levesszuk a tiltast
-            lastElem.prev().removeClass('disabled');
-        } else {
+        } else if (currentPage == maxPage) {
             firstElem.removeClass('disabled');
-            firstElem.next().removeClass('disabled');
-
             lastElem.addClass('disabled');
+        } else {
+            // kozepen vagyunk a lapozoban ezert az elso es utolso elem tiltasokat elvesszuk
+            firstElem.removeClass('disabled');
+
+            lastElem.removeClass('disabled');
         }
 
+        // Megnezzuk hogy van-e most olyan elem a paginatorban ami active
+        var currentActiveElem = paginatorElem.find('ul > li.active');
+        if (currentActiveElem.length > 0) {
+            // ha van olyan elem akkor levesszuk rola az active class-t
+            currentActiveElem.removeClass('active');
+        }
 
+        // jelenlegi oldalszamot tartalmazo li elemet megjeloljuk az active class-val
         paginatorElem.find('ul > li').eq(currentPage).addClass('active');
     }
 
     function renderTicketTabletPaginator() {
         var paginatorULElem = $('#ticket-list-paginator > ul');
-
+        // mivel ujra generaljuk a lapozot, ezert elotte uritjuk
         paginatorULElem.html('');
 
         var html = [];
@@ -112,15 +126,54 @@ $(document).ready(function () {
         // jobbra nyilacska html (nem valtoztatjuk)
         html.push('<li class="page-item"><a class="page-link" href="#" aria-label="Next" data-paginate-size="next"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>');
 
+        // tomb osszefuzese ures szoveggel es utana az UL elem-be toltese
         paginatorULElem.html(html.join(''));
+        // mivel kicsereltuk a lapozo teljes html-t igy az esemenykezeloket is ujra hozza kell adni
+        bindPaginatorEvents();
     }
 
+    /*
+     * erre itt azert van szukseg mert amikor renderTicketTabletPaginator() metodus lefut
+     * akkor mi toroltuk az UL -ben levo osszes elemet igy az eddig felvett click 
+     * esemenyek torlodtek es ujra fel kell hogy vegyuk oket mivel renderTicketTabletPaginator() -ban 
+     * teljesen ujra generaljuk a paginatorban levo LI elemeket es benne az A elemeket
+    */
+    function bindPaginatorEvents() {
+        // Paginatorban levo gombok lekezelese
+        $('#ticket-list-paginator > ul > li > a').click(
+            function (event) {
+                var oldCurrentPage = currentPage;
+                // click esemeny megallitasa, igy nem fut le az A elemben megadott href attributum url keres
+                event.preventDefault();
+                // data-paginate-size kiolvasasa
+                var paginateSize = $(this).data('paginate-size');
+                if (paginateSize == 'prev') {
+                    // ha prev gombra nyomtak akkor csokkentjuk a "globalis" currentPage erteket
+                    currentPage--;
+                } else if (paginateSize == 'next') {
+                    // ha next gombra nyomtak akkor noveljuk a "globalis" currentPage erteket
+                    currentPage++;
+                } else {
+                    currentPage = parseInt(paginateSize);
+                }
+                if (oldCurrentPage != currentPage) {
+                    // lista frissitese
+                    refreshTicketList();
+                }
+            }
+        );
+    }
+
+    // keres box lekezelese
     $(".tickets-search-row input").on("keyup",
         function () {
+            // feltoltjuk a "globalis" kereses szoveget tarolo valtozot
             searchString = $(this).val();
+            // frissitjuk a listat
             refreshTicketList();
         });
 
+    // rendezes lekezelese (fejlecben kattintas hatasa)
     ticketListTable.find("thead th[data-key]").on("click",
         function () {
             var th = $(this);
