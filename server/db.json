@@ -1,15 +1,33 @@
 {
+  "events": [
+    {
+      "id": 1,
+      "title": "Sziget Fesztivál",
+      "description": "Látogass el a 25 éves Szigetre és bulizz a legjobb arcokkal",
+      "time": "2018-08-03",
+      "image": "img/sziget.png"
+    },
+    {
+      "id": 2,
+      "title": "Diótörő Balett",
+      "description": "Nézd meg a grandiőzus balett előadást most elővételben",
+      "time": "2018-08-03",
+      "image": "img/diotoro.jpg"
+    }
+  ],
   "tickets": [
     {
-      "id": 0,
+      "id": 1,
       "event": "Sziget Fesztivál",
+      "eventId": 1,
       "time": "2018-08-03 18:00:00",
       "seller": "Kis Márton",
       "pcs": 9,
       "link": "licit/1"
     },
     {
-      "id": 1,
+      "id": 2,
+      "eventId": 2,
       "event": "Diótörő Balett",
       "time": "2018-08-03 18:00:00",
       "seller": "Nagy Ádám",
@@ -17,7 +35,7 @@
       "link": "licit/1"
     },
     {
-      "id": 2,
+      "id": 3,
       "event": "MOMA Party",
       "time": "2018-08-03 18:00:00",
       "seller": "Brezeviczy Krisztián",
@@ -25,7 +43,7 @@
       "link": "licit/1"
     },
     {
-      "id": 3,
+      "id": 4,
       "event": "A Kékszakállú Herceg vára",
       "time": "2018-08-03 18:00:00",
       "seller": "Zwack Magdolna",
@@ -33,7 +51,7 @@
       "link": "licit/1"
     },
     {
-      "id": 4,
+      "id": 5,
       "event": "Balett mindenkinek",
       "time": "2018-08-03 18:00:00",
       "seller": "Schwarz Aurél",
@@ -41,12 +59,27 @@
       "link": "licit/1"
     },
     {
-      "id": 5,
+      "id": 6,
       "event": "Macskák Musical",
       "time": "2018-08-03 18:00:00",
       "seller": "Cserkó József - TEST",
       "pcs": 2,
       "link": "licit/1"
+    },
+    {
+      "id": 7,
+      "event": "Macskák Musical",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Cserkó József - TEST",
+      "pcs": 2,
+      "link": "licit/1"
+    },
+    {
+      "event": "Balett mindenkinek",
+      "seller": "Kiss Péter",
+      "time": "2017-10-27T18:20",
+      "pcs": "1",
+      "id": 8
     }
   ]
 }

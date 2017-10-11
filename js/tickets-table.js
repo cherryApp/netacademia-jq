@@ -31,6 +31,8 @@ $(document).ready(function () {
     function refreshTicketList() {
         var urlParams = [];
         var url = RESTURL + "/tickets";
+        var reg = /\?.*event\=([0-9]*)/;
+        var eventId = 0;
 
         // lapozo adatok kezelese
         urlParams.push('_limit=' + pageLimit);
@@ -45,6 +47,10 @@ $(document).ready(function () {
             urlParams.push('_sort=' + sortKey);
             urlParams.push('_order=' + sortDirection);
         }
+
+        // az event id hozzáadása
+        eventId = window.location.href.match(reg)[1];
+        urlParams.push('eventId=' + eventId);
 
         // ha van url parameter akkor osszefozzuk az url valtozoba
         if (urlParams.length > 0) {

@@ -58,6 +58,17 @@
         <p></p>
       </div>
 
+
+      <div class="row">
+        <div class="col-12">
+          <button onclick="openNewEventModal()" class="btn btn-block btn-primary btn-lg">
+            Új Esemény
+          </button>
+        </div>
+      </div>
+
+      <div>&nbsp;</div>
+
       <div class="row events-search-row">
         <div class="col-12">
           <div class="input-group">
@@ -71,119 +82,7 @@
         </div>
       </div>
 
-      <!-- Example row of columns -->
-      <!-- 
-      <div class="row">
-          <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Esemény</th>
-                  <th>Időpont</th>
-                  <th>Helyszín</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Sziget Fesztivál</td>
-                  <td>2018-08-03</td>
-                  <td>Hajógyári Sziget</td>
-                  <td>
-                    <a href="#" class="btn btn-primary btn-sm">
-                      tovább <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Diótörő</td>
-                  <td>2017-10-21</td>
-                  <td>Operaház</td>
-                  <td>
-                    <a href="#" class="btn btn-primary btn-sm">
-                      tovább <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Macskák</td>
-                  <td>2017-10-22</td>
-                  <td>Vígszínház</td>
-                  <td>
-                    <a href="#" class="btn btn-primary btn-sm">
-                      tovább <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-      </div>
-      -->
-
-    <div class="card-deck events-card-deck">
-      <a href="tickets.html?event=1" class="card col-12 col-sm-6 col-md-4">
-          <img class="card-img-top" src="img/sziget.png" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Sziget Fesztivál</h4>
-            <p class="card-text">Látogass el a 25 éves Szigetre és bulizz a legjobb arcokkal</p>
-            <p class="card-text"><small class="text-muted">2017-08-03</small></p>
-            <button class="btn btn-link float-right">tovább</button>
-          </div>
-        </a>
-        <a href="tickets.html?event=2" class="card col-12 col-sm-6 col-md-4">
-          <img class="card-img-top" src="img/diotoro.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Diótörő Balett</h4>
-            <p class="card-text">Nézd meg a grandiőzus balett előadást most elővételben</p>
-            <p class="card-text"><small class="text-muted">2017-11-23</small></p>
-            <p><button class="btn btn-link float-right">tovább</button></p>
-          </div>
-        </a>
-        <a href="tickets.html?event=3" class="card col-12 col-sm-6 col-md-4">
-          <img class="card-img-top" src="img/macskak.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Macskák Musical</h4>
-            <p class="card-text">Amerika házhoz jön, ebben a nagyszerű és izgalmas musicalban</p>
-            <p class="card-text"><small class="text-muted">2018-02-11</small></p>
-            <p><button class="btn btn-link float-right">tovább</button></p>
-          </div>
-        </a>
-
-      </div>
-      <div class="card-deck events-card-deck">
-
-        <a href="tickets.html?event=3" class="card col-12 col-sm-6 col-md-4">
-            <img class="card-img-top" src="img/macskak.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Macskák Musical</h4>
-              <p class="card-text">Amerika házhoz jön, ebben a nagyszerű és izgalmas musicalban</p>
-              <p class="card-text"><small class="text-muted">2018-02-11</small></p>
-              <p><button class="btn btn-link float-right">tovább</button></p>
-            </div>
-          </a>
-        <a href="tickets.html?event=3" class="card col-12 col-sm-6 col-md-4">
-            <img class="card-img-top" src="img/macskak.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title">Macskák Musical</h4>
-              <p class="card-text">Amerika házhoz jön, ebben a nagyszerű és izgalmas musicalban</p>
-              <p class="card-text"><small class="text-muted">2018-02-11</small></p>
-              <p><button class="btn btn-link float-right">tovább</button></p>
-            </div>
-          </a>
-          <a href="tickets.html?event=2" class="card col-12 col-sm-6 col-md-4">
-              <img class="card-img-top" src="img/diotoro.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">Diótörő Balett</h4>
-                <p class="card-text">Nézd meg a grandiőzus balett előadást most elővételben</p>
-                <p class="card-text"><small class="text-muted">2017-11-23</small></p>
-                <p><button class="btn btn-link float-right">tovább</button></p>
-              </div>
-            </a>
-        
-    </div>
+    <div class="card-deck events-card-deck"></div>
 
     </div> <!-- /container -->
 
@@ -194,6 +93,56 @@
       </footer>
     </div>
 
+    <div class="templates" style="display: none;">
+      <a href="tickets.html?event=1" class="card col-12 col-sm-6 col-md-4">
+        <img class="card-img-top" src="img/sziget.png" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">Sziget Fesztivál</h4>
+          <p class="card-text">Látogass el a 25 éves Szigetre és bulizz a legjobb arcokkal</p>
+          <p class="card-text event-time"><small class="text-muted">2017-08-03</small></p>
+          <button class="btn btn-link float-right">tovább</button>
+        </div>
+      </a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="newEventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Új Esemény</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="" name="newEventForm" id="newEventForm">
+              <div class="form-group">
+                  <label for="title">Cím</label>
+                  <input type="text" name="title" id="title" class="form-control">
+              </div>
+              <div class="form-group">
+                  <label for="time">Időpont</label>
+                  <input type="date" name="time" id="time" class="form-control">
+              </div>
+              <div class="form-group">
+                  <label for="image">Kép</label>
+                  <input type="text" name="image" id="image" class="form-control">
+              </div>
+              <div class="form-group">
+                  <label for="description">Leírás</label>
+                  <input type="text" name="description" id="description" class="form-control">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégsem</button>
+            <button type="submit" class="btn btn-primary" form="newEventForm">Mentés</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -202,5 +151,6 @@
     <script src="lib/popper.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/events.js"></script>
   </body>
 </html>
