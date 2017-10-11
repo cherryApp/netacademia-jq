@@ -13,6 +13,20 @@
       "description": "Nézd meg a grandiőzus balett előadást most elővételben",
       "time": "2018-08-03",
       "image": "img/diotoro.jpg"
+    },
+    {
+      "title": "Efott",
+      "time": "2017-10-31",
+      "image": "img/sziget.png",
+      "description": "A logjobb buli.",
+      "id": 3
+    },
+    {
+      "title": "Macskák Musical",
+      "time": "2018-02-22",
+      "image": "img/macskak.jpg",
+      "description": "A világ leghíresebb Musicelje a legjobb előadóktól.",
+      "id": 4
     }
   ],
   "tickets": [
@@ -60,14 +74,16 @@
     },
     {
       "id": 6,
+      "eventId": 4,
       "event": "Macskák Musical",
       "time": "2018-08-03 18:00:00",
-      "seller": "Cserkó József - TEST",
-      "pcs": 2,
+      "seller": "Nagy Gábor",
+      "pcs": 5,
       "link": "licit/1"
     },
     {
       "id": 7,
+      "eventId": 4,
       "event": "Macskák Musical",
       "time": "2018-08-03 18:00:00",
       "seller": "Cserkó József - TEST",
@@ -80,6 +96,14 @@
       "time": "2017-10-27T18:20",
       "pcs": "1",
       "id": 8
+    },
+    {
+      "event": "Efott",
+      "eventId": "3",
+      "time": "2018-08-15",
+      "seller": "Én",
+      "pcs": "1",
+      "id": 9
     }
   ]
 }

@@ -116,7 +116,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="" name="newEventForm" id="newEventForm">
+            <form callBack="startEventsPage" method="post" action="http://localhost:3000/events" name="newEventForm" id="newEventForm">
               <div class="form-group">
                   <label for="title">Cím</label>
                   <input type="text" name="title" id="title" class="form-control">
@@ -136,8 +136,10 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégsem</button>
-            <button type="submit" class="btn btn-primary" form="newEventForm">Mentés</button>
+            <button type="button" class="btn btn-secondary" 
+              data-dismiss="modal">Mégsem</button>
+            <button type="submit" class="btn btn-primary" form="newEventForm" 
+              data-dismiss="modal">Mentés</button>
           </div>
         </div>
       </div>

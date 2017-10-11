@@ -204,4 +204,35 @@ $(document).ready(function () {
 
     // Innen indul az alkalmazas
     refreshTicketList();
+
+    ticketListTable.on("ticketDataChanged", function() {
+        refreshTicketList();
+    });
 });
+
+$("#newTicketForm").sendForm();
+// Jegylista frissítése.
+function refreshTicketList() {
+    $("#newTicketModal").modal("hide");
+    $("#ticket-list").trigger("ticketDataChanged");
+}
+
+function openNewTicketModal() {
+    $("#newTicketModal").modal("show");
+}
+
+$.getJSON("http://localhost:3000/events")
+    .done( function(events) {
+        var select = $("#eventId");
+        var eventId = window.location.href.match(/\?.*event\=([0-9]*)/)[1];
+        $.each(events, function(index, event) {
+            var option = $("<option />");
+            option.val(event.id);
+            option.text(event.title);
+            if (event.id == eventId) {
+                option.prop("selected", true);
+            }
+            select.append(option);
+        });
+    });
+

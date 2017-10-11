@@ -67,3 +67,35 @@ function showInvalidMessage() {
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
+
+
+// jQuery plugin for send form data.
+$.fn.sendForm = function() {
+  var form = $(this);
+  var action = form.attr("action");
+  var method = form.attr("method") || "post";
+  var callBack = form.attr("callBack");
+
+  form.on("submit", function(ev) {
+    ev.preventDefault();
+    var formData = {};
+    $(this).find("input, select").each( function(index, input) {
+      formData[input.name] = input.value;
+    });
+    $.ajax({
+      type: method.toUpperCase(),
+      url: action,
+      data: formData,
+      dataType: 'json'
+    }).done( function(resp) {
+      console.log(resp);
+      if (window[callBack]) {
+        window[callBack]();
+      }
+    });
+  });
+
+  return this;
+};
+
+$("#newEventForm").sendForm();
