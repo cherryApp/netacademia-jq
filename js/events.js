@@ -32,4 +32,28 @@ function openNewEventModal() {
   $("#newEventModal").modal("show");
 }
 
+// File előnézet készítése.
+$("input#image").on("change", function() {
+  if (this.files[0].type.indexOf("image") < 0) {
+    return false;
+  }
+
+  var reader = new FileReader();
+  reader.addEventListener("load", function () {
+    $(".preview-holder img")[0].src = reader.result;
+  }, false);
+
+  if (this.files[0]) {
+    reader.readAsDataURL(this.files[0]);
+  }
+});
+
+$(".preview-holder img").on("click", function() {
+  var div = $(this).parent().clone();
+  div.addClass("big-image").on("click", function() {
+    $(this).remove();
+  });
+  $(document.body).append(div);
+});
+
 startEventsPage();
