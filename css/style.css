@@ -159,4 +159,14 @@ footer.footer p {
     display: inline;
   }
 
+  /* Validáció. */
+  .form-group.invalid input, 
+  .form-group.invalid select, 
+  .form-group.invalid textarea {
+    border-color: red;
+  }
+  .form-group.invalid .invalid-feedback {
+    display: block;
+  }
+
   

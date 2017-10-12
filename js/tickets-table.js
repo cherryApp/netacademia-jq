@@ -49,8 +49,8 @@ $(document).ready(function () {
         }
 
         // az event id hozzáadása
-        eventId = window.location.href.match(reg)[1];
-        urlParams.push('eventId=' + eventId);
+        // eventId = window.location.href.match(reg)[1];
+        urlParams.push('eventId=' + sessionStorage.eventId);
 
         // ha van url parameter akkor osszefozzuk az url valtozoba
         if (urlParams.length > 0) {
@@ -210,6 +210,9 @@ $(document).ready(function () {
     });
 });
 
+// Kiválasztott esemény.
+window.currentEvent = null;
+
 $("#newTicketForm").sendForm();
 // Jegylista frissítése.
 function refreshTicketList() {
@@ -221,16 +224,29 @@ function openNewTicketModal() {
     $("#newTicketModal").modal("show");
 }
 
+function setEventDetails(event) {
+    $("#event").val(event.title);
+    $("#time").val(event.time);
+}
+
 $.getJSON("http://localhost:3000/events")
     .done( function(events) {
-        var select = $("#eventId");
-        var eventId = window.location.href.match(/\?.*event\=([0-9]*)/)[1];
+        var select = $("#eventId")
+                        .on("change", function(ev) {
+                            var event = $(this)
+                                        .find("option:selected")
+                                        .data("event");
+                            setEventDetails(event);
+                        });
+        // var eventId = window.location.href.match(/\?.*event\=([0-9]*)/)[1];
         $.each(events, function(index, event) {
             var option = $("<option />");
+            option.data("event", event);
             option.val(event.id);
             option.text(event.title);
-            if (event.id == eventId) {
+            if (event.id == sessionStorage.eventId) {
                 option.prop("selected", true);
+                setEventDetails(event);
             }
             select.append(option);
         });

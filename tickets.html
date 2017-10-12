@@ -153,28 +153,36 @@
             <form callBack="refreshTicketList" method="post" 
               action="http://localhost:3000/tickets" 
               name="newTicketForm" 
-              id="newTicketForm">
-              <div class="form-group">
-                  <label for="event">Esemény</label>
-                  <input type="text" name="event" id="event" class="form-control">
-              </div>
+              id="newTicketForm" 
+              novalidate>
+              <input type="hidden" name="event" id="event" class="form-control">
               <div class="form-group">
                   <label for="eventId">Esemény választása</label>
-                  <select name="eventId" id="eventId" class="form-control">
-
-                  </select>
+                  <select name="eventId" id="eventId" class="form-control"></select>
               </div>
               <div class="form-group">
                   <label for="time">Időpont</label>
-                  <input type="datetime" name="time" id="time" class="form-control">
+                  <input type="datetime" name="time" id="time" 
+                    class="form-control" required>
+                    <div class="invalid-feedback">
+                      Kérem töltse ki a mezőt.
+                    </div>
               </div>
               <div class="form-group">
                   <label for="seller">Eladó</label>
-                  <input type="text" name="seller" id="seller" class="form-control">
+                  <input type="text" name="seller" id="seller" 
+                    class="form-control" required>
+                    <div class="invalid-feedback">
+                      Kérem töltse ki a mezőt.
+                    </div>
               </div>
               <div class="form-group">
                   <label for="pcs">Darabszám</label>
-                  <input type="number" name="pcs" id="pcs" class="form-control">
+                  <input type="number" name="pcs" id="pcs" 
+                    class="form-control" required>
+                    <div class="invalid-feedback">
+                      Kérem töltse ki a mezőt.
+                    </div>
               </div>
             </form>
           </div>

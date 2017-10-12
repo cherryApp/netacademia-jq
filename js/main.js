@@ -76,12 +76,31 @@ $.fn.sendForm = function() {
   var method = form.attr("method") || "post";
   var callBack = form.attr("callBack");
 
+  function checkFormItem(input) {
+    input = $(input);
+    if (input.attr("required") && input.val() == "") {
+      input.parents(".form-group").addClass("invalid");
+      return false;
+    } else {
+      input.parents(".form-group").removeClass("invalid");
+    }
+
+    return true;
+  }
+
   form.on("submit", function(ev) {
     ev.preventDefault();
     var formData = {};
-    $(this).find("input, select").each( function(index, input) {
+    var formIsValid = [];
+    $(this).find("input, select, textarea").each( function(index, input) {
       formData[input.name] = input.value;
+      formIsValid.push(checkFormItem(input));
     });
+
+    if (formIsValid.indexOf(false) > -1) {
+      return;
+    }
+
     $.ajax({
       type: method.toUpperCase(),
       url: action,
